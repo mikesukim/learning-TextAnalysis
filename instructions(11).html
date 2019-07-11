@@ -1,0 +1,103 @@
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<style>
+		.toc {
+			margin-left: 30px;
+		}
+		.code {
+			margin-left: 30px;
+			color:#000000;
+			background-color:#ffffff;
+		}
+		.shell {
+			margin-left: 30px;
+			color:#000000;
+			background-color:#ffffff;
+		}
+	</style>
+</head>
+<body bgcolor="#d0d0b0"><br><br>
+<table align="center" cellpadding="50" border="1" bgcolor="#e0e0c0" width="720"><tbody><tr><td>
+
+<h1>Assignment 9</h1>
+
+
+<ol>
+
+	<li>In this assignment, you will be writing a Python program which reads a text file containing a story and another with a comma separated list of words to be ignored (i.e. a "skip words" file). It will read the contents of both and process them to remove the words in the skip words file from the story text, and then develop a listing of the 5 most common pairs of consecutive words in the remaining text of the story.</br>
+
+	Note that your program should work using Python 3 (e.g. "python3" from the command line of the virtual box).</li><br><br>
+
+
+	<li>	Your program must take two command line arguments, in the following order:
+		<ol>
+			<li>the name of the text file containing the story</li>
+			<li>the name of the text file containing the words to be skipped (which will be formatted as a comma separated list)</li>
+		</ol>
+	
+	Examples of each are included with the assignment.</br>
+
+	If there are not enough arguments provided via the command line, it should print a descriptive error message stating that. Hint: use "import sys", then you can access the command line argument array via "sys.argv". (The first entry will be the name of the Python script being executed.)</li><br><br>
+
+	<li>Open each file, read in its contents, then close it.</br>
+
+	Hint: Using the command "with open(storyFileName, 'r') as storyFile:" will cause the file whose name is stored in the variable storyFileName to be opened and accessible via the variable storyFile. At the end of the "with" block, the file will automatically be closed for you.</li><br><br>
+
+	<li>Lowercase the story text to make it easier to work with.</br>
+
+	Hint: There is a string method which can do this.</li><br><br>
+
+	<li> Remove each character from the following array from the story text:</br>
+
+	<pre class="code">erasures = ['\n','\t','.','?','!',',',';',':','\'','\"']</pre>
+
+	Hint: You may find the string methods `split' and `replace' useful. If you don't know how to use them, search Google for documentation.</li><br><br>
+
+	<li>Make a list containing the words in the story, in the order they appear. (Note: this will essentially turn the story text into a list of words, using the spaces between them to separate them.)</li><br><br>
+
+	<li>Remove each word contained in skip words file from the story text.</li><br><br>
+
+	<li>Make a dictionary where the keys are strings and the values are integers. For each pair of consecutive words in the (remaining) story text, there should be a key containing those words (in that order) separated by a space, and the value associated with that key should be the number of times that that those words appear consecutively in that order within the story text. (You need to figure out how to do this.)</li><br><br>
+
+	<li>If you import the "operator" package (e.g. "import operator"), the following line can be used to sort a dictionary by its values, from smallest to largest (where the dictionary being sorted is named "pairCount"):</br>
+
+	<pre class="code">"sorted(pairCount.items(), key=operator.itemgetter(1))"</pre>
+	</li><br><br>
+
+	<li>Output the top five most frequently occurring word pairs, along with their counts. I've provided an example story in "emperor3.txt" and a file of words to be skipped, "skip-words.txt". (That story and others can be found here:  <a href="http://www.textfiles.com/stories/">http://www.textfiles.com/stories/</a>.) The output from my solution running with those input files follows.</br></br>
+
+<pre class="code">
+>python assignment9.py emperor3.txt skip-words.txt
+
+Story file name: emperor3.txt
+Skip word file name: skip-words.txt
+Skip words: ['a', 'I', 'the', 'at', 'is', 'of', 'if', 'and', 'be', 'in', 'but', 'that', 'for', 'to']
+The five most frequently occurring word pairs are:
+('most important', 14)
+('three questions', 7)
+('he was', 5)
+('important pursuit', 4)
+('would have', 4)
+</pre>
+
+</li><br><br>
+
+	<li>You must submit your assignment as a zip file named "assignment9.zip" containing exactly one file, "assignment9.py".</li><br><br>
+
+	<li>Here is the rubrick the grader will use, so make sure your page meets each of these requirements:
+		<ol>
+			<li>(20 points) Is the submission exactly a single sip file named "assignment9.zip" which contains a single file named "assignment9.py"?</li>
+			<li>(20 points) Does the program correct run using Python 3?</li>
+			<li>(15 points) Does the program correctly accept two command line arugments, specifying the input file names, and output a descriptive error message if those arguments are not provided?</li>
+			<li>(20 points) Does the program correctly ignore the existence of words contained within the "skip words" file?</li>
+			<li>(20 points) Does the program correctly output the five most commonly occurring pairs of consecutive words?</li>
+			<li>(5 points) Are the counts of occurrences correct for those pairs?</li>
+		</ol>
+		</li><br><br>
+
+</ol>
+
+</td></tr></tbody></table>
+
+</body></html>
+
